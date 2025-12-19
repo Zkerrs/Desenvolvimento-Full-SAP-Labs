@@ -8,7 +8,7 @@
 @Analytics.query: true       
 @OData.publish: true
 
-define view ZCDS_MVISOUZA_CP
+define view ZCDS_MVISOUZA_DEV_CP
   as select from ZIDS_MVISOUZA_CP
 {
     key CompanyCode,
