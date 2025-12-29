@@ -9,7 +9,7 @@
 @Analytics.dataCategory: #CUBE 
 @OData.publish: true
 
-define view ZIDS_MVISOUZA_CP
+define view ZI_Contas_Pagar
   as select from I_OperationalAcctgDocItem as bseg
     
     // --- JOINS ---

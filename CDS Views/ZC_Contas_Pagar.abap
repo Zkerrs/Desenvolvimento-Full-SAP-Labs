@@ -8,8 +8,8 @@
 @Analytics.query: true       
 @OData.publish: true
 
-define view ZCDS_MVISOUZA_DEV_CP
-  as select from ZIDS_MVISOUZA_CP
+define view ZC_Contas_Pagar
+  as select from ZI_Contas_Pagar
 {
     key CompanyCode,
     key DocumentNumber,

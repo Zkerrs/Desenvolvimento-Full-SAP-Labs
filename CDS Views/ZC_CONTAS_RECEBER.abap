@@ -8,8 +8,8 @@
 @Analytics.query: true       
 @OData.publish: true
 
-define view ZC_CONTAS_RECEBER
-  as select from ZI_CONTAS_RECEBER
+define view ZC_Contas_Receber
+  as select from ZI_Contas_Receber
 {
     key CompanyCode,
     key DocumentNumber,
