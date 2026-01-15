@@ -22,25 +22,8 @@ define view ZI_IMOBILIZADO_FLOWCB
   key Geral.FixedAssetSub                 as AssetSubNumber,
   
   Geral.AssetName,
-  Geral.AssetTrxType                      as TransactionType, -- Ex: 100, 120, 500
-  
-  case 
-    -- Se o Tipo de Documento for 'AF', é Depreciação (Automática)
-    when Geral.DocumentType = 'AF'        then 'Depreciação'
-    -- Tipos manuais de Depreciação
-    when Geral.AssetTrxType = '500'       then 'Depreciação'
-    -- (1=Compra, 2=Baixa, 3=Transf)
-    when Geral.AssetTrxType like '1%'     then 'Aquisição/Capitalização'
-    when Geral.AssetTrxType like '2%'     then 'Baixa/Venda'
-    when Geral.AssetTrxType like '3%'     then 'Transferência'
-    when Geral.AssetTrxType like '4%'     then 'Pós-Capitalização'
-    
-    when Geral.MasterFixedAsset is not null 
-         and Geral.MasterFixedAsset <> '' then 'Outros/Customizados'
-         
-    else 'Não Relacionado a Ativo' 
-  end                                     as CategoriaMovimento,
-
+  @EndUserText.label: 'Tipo de Movimento'
+  Geral.AssetTrxType                      as CategoriaMovimento,  
   Geral.FiscalPeriod,
   Geral.PostingDate,
   Geral.DocumentDate,

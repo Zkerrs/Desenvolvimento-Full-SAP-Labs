@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIGLABLFLOWCB'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Interface Razão com Ativo e Parceiros'
+@EndUserText.label: 'View Geral Base'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     
