@@ -20,7 +20,7 @@ define view ZC_IMOBILIZADO_FLOWCB
     key LedgerLineItem,
     key FiscalYear,
 
-    @EndUserText.label: 'Imobilizado'
+   @EndUserText.label: 'Imobilizado'
     AssetMainNumber,
     
     @EndUserText.label: 'Nr. Imobilizado'
@@ -29,8 +29,17 @@ define view ZC_IMOBILIZADO_FLOWCB
     @EndUserText.label: 'Descrição do Imobilizado'
     AssetName,
     
+    @EndUserText.label: 'Classe do Ativo'
+    AssetClass,
+
+    @EndUserText.label: 'Descrição da Classe'
+    AssetClassDescription,
+    
     @EndUserText.label: 'Tipo de Movimento'
-    CategoriaMovimento,
+    AssetTrxType,
+    
+    @EndUserText.label: 'Descrição do Movimento'
+    AssetTransactionTypeName,
 
     @EndUserText.label: 'Conta Razão'
     GLAccount,

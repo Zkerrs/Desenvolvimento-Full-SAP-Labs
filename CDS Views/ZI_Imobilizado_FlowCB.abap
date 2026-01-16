@@ -11,9 +11,18 @@
 define view ZI_IMOBILIZADO_FLOWCB
   as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
 
+  left outer join I_FixedAsset as _AssetMaster
+    on  Geral.CompanyCode      = _AssetMaster.CompanyCode
+    and Geral.MasterFixedAsset = _AssetMaster.MasterFixedAsset
+    and Geral.FixedAssetSub    = _AssetMaster.FixedAsset
+  
   association [0..1] to I_AssetTransactionTypeText as _TrxText 
     on  Geral.AssetTrxType = _TrxText.AssetTransactionType
     and _TrxText.Language  = $session.system_language
+
+  association [0..1] to I_AssetClassText as _ClassText
+    on  _AssetMaster.AssetClass = _ClassText.AssetClass
+    and _ClassText.Language     = $session.system_language
 
 {
   key Geral.CompanyCode,
@@ -26,12 +35,11 @@ define view ZI_IMOBILIZADO_FLOWCB
   key Geral.FixedAssetSub                 as AssetSubNumber,
   
   Geral.AssetName,
-
-  @EndUserText.label: 'Cód. Movimento'
-  Geral.AssetTrxType                      as CategoriaMovimento,
+  _AssetMaster.AssetClass,
+  _ClassText.AssetClassDescription,
   
-  @EndUserText.label: 'Descrição do Movimento'
-  _TrxText.AssetTransactionTypeName       as NomeDoMovimento,
+  Geral.AssetTrxType,
+  _TrxText.AssetTransactionTypeName,
 
   Geral.FiscalPeriod,
   Geral.PostingDate,
