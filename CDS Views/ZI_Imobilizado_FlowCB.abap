@@ -10,6 +10,11 @@
 
 define view ZI_IMOBILIZADO_FLOWCB
   as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
+
+  association [0..1] to I_AssetTransactionTypeText as _TrxText 
+    on  Geral.AssetTrxType = _TrxText.AssetTransactionType
+    and _TrxText.Language  = $session.system_language
+
 {
   key Geral.CompanyCode,
   key Geral.Ledger,
@@ -17,17 +22,21 @@ define view ZI_IMOBILIZADO_FLOWCB
   key Geral.LedgerLineItem,
   key Geral.FiscalYear,
   
-  -- Dados do Ativo (Imobilizado)
   key Geral.MasterFixedAsset              as AssetMainNumber,
   key Geral.FixedAssetSub                 as AssetSubNumber,
   
   Geral.AssetName,
-  @EndUserText.label: 'Tipo de Movimento'
-  Geral.AssetTrxType                      as CategoriaMovimento,  
+
+  @EndUserText.label: 'Cód. Movimento'
+  Geral.AssetTrxType                      as CategoriaMovimento,
+  
+  @EndUserText.label: 'Descrição do Movimento'
+  _TrxText.AssetTransactionTypeName       as NomeDoMovimento,
+
   Geral.FiscalPeriod,
   Geral.PostingDate,
   Geral.DocumentDate,
-  Geral.ReferenceID,       -- Nota Fiscal
+  Geral.ReferenceID,       
   Geral.ItemText,          
 
   Geral.CostCenter,
@@ -38,7 +47,7 @@ define view ZI_IMOBILIZADO_FLOWCB
   Geral.Plant,
   Geral.PlantName,
   
-  -- (Capex)
+  -- Capex / Projetos
   Geral.WBSElement,
   Geral.WBSDescription,
   Geral.Project,
