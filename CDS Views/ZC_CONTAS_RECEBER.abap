@@ -12,44 +12,78 @@ define view ZC_Contas_Receber
   as select from ZI_Contas_Receber
 {
     key CompanyCode,
-    key DocumentNumber,
-    key DocumentItem,
-    key FiscalYear,
-    key Customer,      
-    key GLAccount,
+    key Ledger,
     
-    @EndUserText.label: 'Mandante'
-    MandanteCod,               
-    Branch,
-    CompanyName,
+    @EndUserText.label: 'Número do Documento'
+    key DocumentNumber,
+    
+    @EndUserText.label: 'Item'
+    key DocumentItem,
+    
+    key FiscalYear,
+
+    @EndUserText.label: 'Cliente'
+    Customer,
+    
+    @EndUserText.label: 'Nome do Cliente'
     CustomerName,
-    DocType,
-    PostingDate,
-    DocumentDate,
-    DueDate,
-    DocumentText,
-    ClearingDocument,
-    ClearingDate,
+
+    @EndUserText.label: 'Conta Razão'
+    GLAccount,
+    
+    @EndUserText.label: 'Nome da Conta'
+    GLAccountName,
+
+    @EndUserText.label: 'Área de Negócio'
+    Branch,
+    
+    @EndUserText.label: 'Centro de Lucro'
     ProfitCenter,
-    CNPJ,
-    TipoReceita,
-    DocEstorno,
-    DocumentStatus,
+    
+    @EndUserText.label: 'Nome Centro Lucro'
+    ProfitCenterName,
+
+    @EndUserText.label: 'Tipo de Documento'
+    DocType,
+    
+    @EndUserText.label: 'Referência / Nota Fiscal'
+    NotaFiscal_XBLNR,
+    
+    @EndUserText.label: 'Atribuição'
+    Atribuicao_ZUONR,
+    
+    @EndUserText.label: 'Texto do Item'
+    DocumentText,
+    
+    @EndUserText.label: 'Débito/Crédito'
     DebitCredit,
-    PostingKey,
+
+    @EndUserText.label: 'Data de Lançamento'
+    PostingDate,
+    
+    @EndUserText.label: 'Data do Documento'
+    DocumentDate,
+    
+    @EndUserText.label: 'Data de Vencimento'
+    DueDate,
+    
+    @EndUserText.label: 'Data de Compensação'
+    ClearingDate,
+
+    @EndUserText.label: 'Status do Documento'
+    DocumentStatus,
+
     Currency,
 
     @DefaultAggregation: #SUM
-    AmountLocalCurrency,
+    @EndUserText.label: 'Valor Original'
+    AmountDocumentCurrency,
 
     @DefaultAggregation: #SUM
-    AmountDocumentCurrency,
-    
-    @DefaultAggregation: #SUM
-    @EndUserText.label: 'Total em Aberto'
+    @EndUserText.label: 'Saldo em Aberto'
     ValorTotalAberto,
 
     @DefaultAggregation: #SUM
-    @EndUserText.label: 'Total Compensado'
+    @EndUserText.label: 'Valor Compensado'
     ValorTotalCompensado
 }

@@ -10,79 +10,66 @@
 @OData.publish: true
 
 define view ZI_Contas_Receber
-  as select from I_OperationalAcctgDocItem as bseg
-    
-    // --- JOINS ---
-    left outer join t001       on bseg.CompanyCode = t001.bukrs
-    left outer join kna1       on bseg.Customer    = kna1.kunnr
-    
-    left outer join t003t      on  bseg.AccountingDocumentType = t003t.blart
-                               and t003t.spras                 = $session.system_language
-                               
-    left outer join j_1bbranch on  bseg.CompanyCode   = j_1bbranch.bukrs
-                               and bseg.BusinessPlace = j_1bbranch.branch
+  as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
+
 {
-  key bseg.CompanyCode,
-  key bseg.AccountingDocument                                  as DocumentNumber,
-  key bseg.AccountingDocumentItem                              as DocumentItem,
-  key bseg.FiscalYear                                          as FiscalYear,
-  key bseg.Customer                                            as Customer, 
-  key bseg.GLAccount                                           as GLAccount,
+  key Geral.CompanyCode,
+  key Geral.Ledger,
+  key Geral.AccountingDocument                 as DocumentNumber,
+  key Geral.LedgerLineItem                     as DocumentItem,
+  key Geral.FiscalYear,
+
+  Geral.Customer,
+  Geral.CustomerName,
   
-  concat( t001.mandt, '' )                                     as MandanteCod,
+  Geral.GLAccount                              as GLAccount,
+  Geral.GLAccountName,
   
-  bseg.BusinessArea                                            as Branch,
-  t001.butxt                                                   as CompanyName,
-  kna1.name1                                                   as CustomerName, 
-  bseg.AccountingDocumentType                                  as DocType,
-  bseg.PostingDate                                             as PostingDate,
-  bseg.DocumentDate                                            as DocumentDate,
-  bseg.NetDueDate                                              as DueDate,
+  Geral.BusinessArea                           as Branch,
+  Geral.ProfitCenter,
+  Geral.ProfitCenterName,
+
+  Geral.DocumentType                           as DocType,
+  Geral.ReferenceID                            as NotaFiscal_XBLNR,
+  Geral.Assignment                             as Atribuicao_ZUONR,
+  Geral.ItemText                               as DocumentText,
   
-  @Semantics.amount.currencyCode: 'Currency'
-  @DefaultAggregation: #SUM
-  bseg.AmountInCompanyCodeCurrency                             as AmountLocalCurrency,
+  Geral.PostingDate,
+  Geral.DocumentDate,
+  Geral.NetDueDate                             as DueDate,
+  Geral.ClearingDate,
   
-  bseg.DebitCreditCode                                         as DebitCredit,
-  
-  @Semantics.amount.currencyCode: 'Currency'
-  @DefaultAggregation: #SUM
-  cast(bseg.AmountInCompanyCodeCurrency as abap.dec(16,2))     as AmountDocumentCurrency,
-  
-  @Semantics.currencyCode: true
-  bseg.CompanyCodeCurrency                                     as Currency,
-  
-  bseg.PostingKey                                              as PostingKey,
-  bseg.DocumentItemText                                        as DocumentText,
-  bseg.ClearingJournalEntry                                    as ClearingDocument,
-  bseg.ClearingDate                                            as ClearingDate,
-  
-  bseg.ProfitCenter                                            as ProfitCenter,
-  
-  j_1bbranch.stcd1                                             as CNPJ,       
-  t003t.ltext                                                  as TipoReceita, 
-  bseg.InvoiceReference                                        as DocEstorno,
-  
-  case
-    when bseg.ClearingJournalEntry <> '' then 'Compensado'
-    else 'Aberto'
-  end                                                          as DocumentStatus,
-  
-  @Semantics.amount.currencyCode: 'Currency'
-  @DefaultAggregation: #SUM
   case 
-    when bseg.ClearingJournalEntry is null or bseg.ClearingJournalEntry = '' 
-    then cast(bseg.AmountInCompanyCodeCurrency as abap.dec(16,2))
-    else cast(0 as abap.dec(16,2))
-  end                                                          as ValorTotalAberto,
+    when Geral.ClearingDoc is not null and Geral.ClearingDoc <> '' 
+    then 'Compensado'
+    else 'Aberto'
+  end                                          as DocumentStatus,
+
+  Geral.Currency,
+  Geral.DebitCreditCode                        as DebitCredit,
+
+  @Semantics.amount.currencyCode: 'Currency'
+  @DefaultAggregation: #SUM
+  Geral.Amount                                 as AmountDocumentCurrency,
 
   @Semantics.amount.currencyCode: 'Currency'
   @DefaultAggregation: #SUM
   case 
-    when bseg.ClearingJournalEntry <> '' 
-    then cast(bseg.AmountInCompanyCodeCurrency as abap.dec(16,2))
-    else cast(0 as abap.dec(16,2))
-  end                                                          as ValorTotalCompensado
+    when Geral.ClearingDoc is null or Geral.ClearingDoc = '' 
+    then Geral.Amount
+    else cast( 0 as abap.curr(23,2) )
+  end                                          as ValorTotalAberto,
+
+  @Semantics.amount.currencyCode: 'Currency'
+  @DefaultAggregation: #SUM
+  case 
+    when Geral.ClearingDoc is not null and Geral.ClearingDoc <> ''
+    then Geral.Amount
+    else cast( 0 as abap.curr(23,2) )
+  end                                          as ValorTotalCompensado
+
 }
 where
-  bseg.Customer is not null
+    Geral.Ledger = '0L'
+    and Geral.Customer is not null
+    
