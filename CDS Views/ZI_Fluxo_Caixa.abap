@@ -88,3 +88,5 @@ define view ZI_Fluxo_Caixa
   _Customer,
   _Supplier
 }
+where
+  Ledger = '0L'
