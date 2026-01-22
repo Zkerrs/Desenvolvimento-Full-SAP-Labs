@@ -8,7 +8,7 @@
 @Analytics.dataCategory: #CUBE 
 @OData.publish: true
 
-define view ZI_GLACCOUNTBALANCEFLOWCB
+define view ZI_GLAccountBalanceFlowCB
   as select from I_GLAccountLineItem as Item
 
   left outer join I_GLAccountText    as GLText      on  Item.ChartOfAccounts = GLText.ChartOfAccounts

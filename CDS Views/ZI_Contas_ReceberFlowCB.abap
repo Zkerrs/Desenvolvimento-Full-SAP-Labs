@@ -9,7 +9,7 @@
 @Analytics.dataCategory: #CUBE 
 @OData.publish: true
 
-define view ZI_Contas_Receber
+define view ZI_Contas_ReceberFlowCB
   as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
 
 {
@@ -72,4 +72,3 @@ define view ZI_Contas_Receber
 where
     Geral.Ledger = '0L'
     and Geral.Customer is not null
-    

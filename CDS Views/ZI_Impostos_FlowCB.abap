@@ -8,7 +8,7 @@
 @Analytics.dataCategory: #CUBE 
 @OData.publish: true
 
-define view ZI_IMPOSTOS_FLOWCB
+define view ZI_Impostos_FlowCB
   as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
 {
   key Geral.CompanyCode,

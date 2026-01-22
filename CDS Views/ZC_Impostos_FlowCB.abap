@@ -8,8 +8,8 @@
 @Analytics.query: true
 @OData.publish: true
 
-define view ZC_IMPOSTOS_FLOWCB
-  as select from ZI_IMPOSTOS_FLOWCB
+define view ZC_Impostos_FlowCB
+  as select from ZI_Impostos_FlowCB
 {
     key CompanyCode,
     key Ledger,
