@@ -14,6 +14,16 @@ define view ZI_GLAccountBalanceFlowCB
   left outer join I_GLAccountText    as GLText      on  Item.ChartOfAccounts = GLText.ChartOfAccounts
                                                     and Item.GLAccount       = GLText.GLAccount
                                                     and GLText.Language      = $session.system_language
+                                                    
+  left outer join I_GLAccountInChartOfAccounts as MestreConta on  Item.ChartOfAccounts = MestreConta.ChartOfAccounts
+                                                              and Item.GLAccount       = MestreConta.GLAccount
+
+  left outer join I_GLAccountGroupText as TextoGrupo on  MestreConta.ChartOfAccounts = TextoGrupo.ChartOfAccounts
+                                                     and MestreConta.GLAccountGroup  = TextoGrupo.GLAccountGroup
+                                                     and TextoGrupo.Language         = $session.system_language
+
+  left outer join I_GLAccountTypeText as TextoTipo  on  MestreConta.GLAccountType = TextoTipo.GLAccountType
+                                                    and TextoTipo.Language        = $session.system_language                                
 
   left outer join I_CostCenterText   as CostCenterT on  Item.ControllingArea = CostCenterT.ControllingArea
                                                     and Item.CostCenter      = CostCenterT.CostCenter
@@ -52,6 +62,12 @@ define view ZI_GLAccountBalanceFlowCB
   Item.ChartOfAccounts                                         as ChartOfAccounts,
   Item.GLAccount                                               as GLAccount,
   GLText.GLAccountName                                         as GLAccountName,
+  
+  MestreConta.GLAccountType,       
+  TextoTipo.GLAccountTypeName,
+  MestreConta.GLAccountGroup,      
+  TextoGrupo.AccountGroupName,
+  
   Item.FinancialAccountType                                    as AccountType, -- (Ativo 'A', Material 'M', Fornecedor 'K')
   
   Item.ControllingArea                                         as ControllingArea,
