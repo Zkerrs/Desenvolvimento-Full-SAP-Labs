@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCSQL_MVI_DEV_CP'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Contas a Pagar (Consumption View)'
+@EndUserText.label: 'Analytics Contas a Pagar'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION  
