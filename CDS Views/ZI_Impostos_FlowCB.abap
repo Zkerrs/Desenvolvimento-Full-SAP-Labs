@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIIMPFLOWCB'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Impostos (Contábil/Razão)'
+@EndUserText.label: 'Relatório de Impostos'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     
