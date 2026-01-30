@@ -2,7 +2,7 @@
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Interface - Fluxo de Caixa Completo'
+@EndUserText.label: 'Fluxo de Caixa'
 
 @VDM.viewType: #COMPOSITE
 @Analytics.dataCategory: #CUBE
