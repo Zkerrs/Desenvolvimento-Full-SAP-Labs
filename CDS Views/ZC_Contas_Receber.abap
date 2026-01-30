@@ -1,15 +1,15 @@
 @AbapCatalog.sqlViewName: 'ZCSQL_DEV_CR'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Contas a Receber (Query)'
+@EndUserText.label: 'Analytics Contas a Receber'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION  
 @Analytics.query: true       
 @OData.publish: true
 
-define view ZC_Contas_ReceberFlowCB
-  as select from ZI_Contas_ReceberFlowCB
+define view ZC_Contas_Receber
+  as select from ZI_Contas_Receber
 {
     key CompanyCode,
     key Ledger,
