@@ -53,3 +53,7 @@ Views voltadas para valorização de estoque e controle de materiais.
     * Ativação e manutenção de serviços OData gerados pelas views.
 * **Front-end:** SAP Analytics Cloud (SAC).
 
+---
+<div align="center">
+  <sub>SAP S/4HANA | ABAP Core Data Services | Virtual Data Model</sub>
+</div>
