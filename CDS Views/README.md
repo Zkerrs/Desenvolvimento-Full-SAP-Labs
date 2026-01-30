@@ -2,7 +2,7 @@
 
 Este diretório contém as **Core Data Services (CDS) Views** desenvolvidas para relatórios analíticos e operacionais. As views estão estruturadas para suportar análises financeiras (Balanço, DRE, Fluxo de Caixa) e gestão de estoques/custos.
 
-## 🏗️ Estrutura de Naming Convention
+## 🏗️ Estrutura
 
 O projeto segue a convenção de nomenclatura padrão VDM (Virtual Data Model):
 
@@ -11,7 +11,7 @@ O projeto segue a convenção de nomenclatura padrão VDM (Virtual Data Model):
 
 ---
 
-## 📊 Catálogo de Views
+## 📊 Sobre as Views
 
 ### 💰 Finanças & Contabilidade (FI/CO)
 
@@ -39,16 +39,17 @@ Views voltadas para valorização de estoque e controle de materiais.
 
 ---
 
-## 🛠️ Requisitos Técnicos
+## 🛠️ Ferramentas & Requisitos Técnicos
 
 * **Linguagem:** ABAP CDS (Core Data Services)
-* **Compatibilidade:** S/4HANA
-* **Front-end Sugerido:** SAP Analytics Cloud (SAC) ou Power BI (via conector SAP BW).
+* **Compatibilidade:** SAP S/4HANA
+* **IDE (Backend):** Eclipse com ABAP Development Tools (ADT) para codificação e modelagem.
+* **Gerenciamento (SAP GUI):** Utilização de transações clássicas para administração e testes:
+    * **Gestão de Transportes & Pacotes:**
+    * Transport Organizer, Cópia de Request entre Mandantes e Package Builder.
+    * **Testes & Analytics:**
+    * Query Monitor para debug e análise de performance das Queries CDS.
+    * **Conectividade & OData:**
+    * Ativação e manutenção de serviços OData gerados pelas views.
+* **Front-end:** SAP Analytics Cloud (SAC).
 
-## 🚀 Como Implementar
-
-1.  Clone este repositório.
-2.  No **Eclipse ADT** (ABAP Development Tools), crie as views na ordem de dependência:
-    1.  Primeiro as `ZI_` (Interface Views).
-    2.  Depois as `ZC_` (Consumption Views).
-3.  Ative os objetos no servidor de aplicação.
