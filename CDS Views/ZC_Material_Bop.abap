@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCMATBOP'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Analítico BOP e Custo Material'
+@EndUserText.label: 'Analytics Custo Material'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION
