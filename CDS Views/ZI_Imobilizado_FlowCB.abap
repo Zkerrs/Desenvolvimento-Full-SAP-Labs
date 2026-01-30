@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIIMOBFL'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Imobilizado (Fonte: Razão Geral)'
+@EndUserText.label: 'Imobilizado'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     
