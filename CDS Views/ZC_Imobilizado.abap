@@ -1,15 +1,15 @@
 @AbapCatalog.sqlViewName: 'ZCIMOBFL'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Imobilizado (Analítico)'
+@EndUserText.label: 'Analytics de Imobilizado'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION
 @Analytics.query: true       
 @OData.publish: true
 
-define view ZC_IMOBILIZADO_FLOWCB
-  as select from ZI_IMOBILIZADO_FLOWCB
+define view ZC_Imobilizado
+  as select from ZI_Imobilizado
 {
     key CompanyCode,
     key Ledger,
