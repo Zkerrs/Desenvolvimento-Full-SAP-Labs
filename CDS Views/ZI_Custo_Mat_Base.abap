@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZICUSTOMATBASE'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Base Cálculo Custo'
+@EndUserText.label: 'Base de Cálculo do Custo Material'
 @Metadata.ignorePropagatedAnnotations: true
 @VDM.viewType: #COMPOSITE     
 
