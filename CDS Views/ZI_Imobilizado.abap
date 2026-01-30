@@ -8,8 +8,8 @@
 @Analytics.dataCategory: #CUBE 
 @OData.publish: true
 
-define view ZI_IMOBILIZADO_FLOWCB
-  as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
+define view ZI_Imobilizado
+  as select from ZI_GLAccountBalanceFlow as Geral
 
   left outer join I_FixedAsset as _AssetMaster
     on  Geral.CompanyCode      = _AssetMaster.CompanyCode

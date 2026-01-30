@@ -9,7 +9,7 @@
 @OData.publish: true
 
 define view ZI_Material_Bop
-  as select from ZI_GLACCOUNTBALANCEFLOWCB as Geral
+  as select from ZI_GLAccountBalanceFlow as Geral
 
   left outer join I_ProductValuationBasic as Custo 
     on  Geral.Material = Custo.Product

@@ -9,7 +9,7 @@
 @OData.publish: true
 
 define view ZI_Balanco_Patrimonial
-  as select from ZI_GLACCOUNTBALANCEFLOW as Geral
+  as select from ZI_GLAccountBalanceFlow as Geral
 {
   key Geral.CompanyCode,
   key Geral.Ledger,
