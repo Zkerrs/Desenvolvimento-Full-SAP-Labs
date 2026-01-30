@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIMATBOP'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório Unificado: BOP e Custo Material'
+@EndUserText.label: 'Relatório Material BOP'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     
