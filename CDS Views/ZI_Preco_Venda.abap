@@ -38,10 +38,10 @@ define view ZI_Preco_Venda
   
   Geral.BusinessArea      as Branch,
 
-  case substring( Geral.GLAccount, 1, 5 ) 
-    when '31101' then 'FATURAMENTO BRUTO' 
-    when '31201' then 'FATURAMENTO BRUTO' 
-    when '31102' then 'DEDUCOES (IMPOSTOS)' 
+  case 
+    when Geral.GLAccount like '%31101%' then 'FATURAMENTO BRUTO' 
+    when Geral.GLAccount like '%31201%' then 'FATURAMENTO BRUTO' 
+    when Geral.GLAccount like '%31102%' then 'DEDUCOES (IMPOSTOS)' 
     else 'OUTROS' 
   end as ComponentePreco,
 
@@ -59,5 +59,8 @@ define view ZI_Preco_Venda
 }
 where
   Geral.Ledger = '0L'
+  and ( Geral.GLAccount like '%31101%' 
+     or Geral.GLAccount like '%31102%' 
+     or Geral.GLAccount like '%31201%' )
 
   
