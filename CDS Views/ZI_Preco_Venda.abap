@@ -59,6 +59,5 @@ define view ZI_Preco_Venda
 }
 where
   Geral.Ledger = '0L'
-  and ( Geral.GLAccount like '31101%' 
-     or Geral.GLAccount like '31102%' 
-     or Geral.GLAccount like '31201%' )
+
+  
