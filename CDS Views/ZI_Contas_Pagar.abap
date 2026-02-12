@@ -59,6 +59,10 @@ define view ZI_Contas_Pagar
   bseg.ClearingJournalEntry                                    as ClearingDocument,
   bseg.ClearingDate                                            as ClearingDate,
   bseg.CostCenter                                              as CostCenter,
+
+  bseg.OffsettingAccount                                       as GKONT,
+  bseg.OffsettingAccountType                                   as GKOAR,
+  
   j_1bbranch.stcd1                                             as CNPJ,       
   t003t.ltext                                                  as TipoDespesa, 
   bseg.InvoiceReference                                        as DocEstorno,
