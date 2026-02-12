@@ -58,6 +58,9 @@ define view ZI_GLAccountBalanceFlow
   key Item.LedgerGLLineItem                                    as LedgerLineItem,
   key Item.FiscalYear                                          as FiscalYear,
   
+  Item.OffsettingAccount                                       as GKONT,
+  Item.OffsettingAccountType                                   as GKOAR,
+
   Item.FiscalPeriod                                            as FiscalPeriod,
   Item.ChartOfAccounts                                         as ChartOfAccounts,
   Item.GLAccount                                               as GLAccount,
