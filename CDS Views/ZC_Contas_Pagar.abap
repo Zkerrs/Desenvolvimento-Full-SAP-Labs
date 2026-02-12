@@ -11,45 +11,55 @@
 define view ZC_Contas_Pagar
   as select from ZI_Contas_Pagar
 {
-    key CompanyCode,
-    key DocumentNumber,
-    key DocumentItem,
-    key FiscalYear,
-    key Supplier,      
-    key GLAccount,
-    
-    @EndUserText.label: 'Mandante'
-    MandanteCod,               
-    Branch,
-    CompanyName,
-    VendorName,
-    DocType,
-    PostingDate,
-    DocumentDate,
-    DueDate,
-    DocumentText,
-    ClearingDocument,
-    ClearingDate,
-    CostCenter,
-    CNPJ,
-    TipoDespesa,
-    DocEstorno,
-    DocumentStatus,
-    DebitCredit,
-    PostingKey,
-    Currency,
+  key CompanyCode,
+  key DocumentNumber,
+  key DocumentItem,
+  key FiscalYear,
+  key Supplier,
+  key GLAccount,
 
-    @DefaultAggregation: #SUM
-    AmountLocalCurrency,
+      @EndUserText.label: 'Mandante'
+      MandanteCod,
 
-    @DefaultAggregation: #SUM
-    AmountDocumentCurrency,
-    
-    @DefaultAggregation: #SUM
-    @EndUserText.label: 'Total em Aberto'
-    ValorTotalAberto,
+      Branch,
+      CompanyName,
+      VendorName,
+      DocType,
+      PostingDate,
+      DocumentDate,
+      DueDate,
+      DocumentText,
+      ClearingDocument,
+      ClearingDate,
+      CostCenter,
+      CNPJ,
+      TipoDespesa,
+      DocEstorno,
+      DocumentStatus,
+      DebitCredit,
+      PostingKey,
+      Currency,
 
-    @DefaultAggregation: #SUM
-    @EndUserText.label: 'Total Compensado'
-    ValorTotalCompensado
+      @EndUserText.label: 'C/Contrapartida (GKONT)'
+      @AnalyticsDetails.query.display: #KEY
+      GKONT,
+
+      @EndUserText.label: 'Tp. C/Contrapartida (GKOAR)'
+      @AnalyticsDetails.query.display: #KEY
+      GKOAR,
+
+      @DefaultAggregation: #SUM
+      AmountLocalCurrency,
+
+      @DefaultAggregation: #SUM
+      AmountDocumentCurrency,
+
+      @DefaultAggregation: #SUM
+      @EndUserText.label: 'Total em Aberto'
+      ValorTotalAberto,
+
+      @DefaultAggregation: #SUM
+      @EndUserText.label: 'Total Compensado'
+      ValorTotalCompensado
+
 }
