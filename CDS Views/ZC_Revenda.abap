@@ -39,17 +39,52 @@ define view ZC_Revenda
   @AnalyticsDetails.query.display: #KEY_TEXT
   Customer,
 
+  @EndUserText.label: 'Nome do Cliente'
+  CustomerName,
+
+  @EndUserText.label: 'Fornecedor'
+  @AnalyticsDetails.query.display: #KEY_TEXT
+  Supplier,
+
+  @EndUserText.label: 'Nome do Fornecedor'
+  SupplierName,
   
+  @EndUserText.label: 'Nome do Material'
+  MaterialName,
+
   @EndUserText.label: 'Descr. Conta Contábil'
   GLAccountName,
 
   @EndUserText.label: 'Centro de Lucro'
   @AnalyticsDetails.query.display: #KEY_TEXT
   ProfitCenter,
+  
+  @EndUserText.label: 'Nome Centro de Lucro'
+  @AnalyticsDetails.query.display: #KEY_TEXT
+  ProfitCenterName,
+  
+  @EndUserText.label: 'Centro de Custo'
+  @AnalyticsDetails.query.display: #KEY_TEXT
+  CostCenter,
+
+  @EndUserText.label: 'Nome Centro Custo'
+  CostCenterName,
 
   @EndUserText.label: 'Centro'
   @AnalyticsDetails.query.display: #KEY_TEXT
   Plant,
+  
+  @EndUserText.label: 'Divisão'
+  Branch,
+
+  @EndUserText.label: 'Atribuição (Contrato)'
+  Atribuicao,
+
+  @EndUserText.label: 'Histórico/Texto'
+  Historico,
+
+  @EndUserText.label: 'Referência (NF)'
+  Referencia,
 
   @EndUserText.label: 'Unidade Medida'
   BaseUnit,
@@ -66,3 +101,4 @@ define view ZC_Revenda
   Quantidade
 
 }
+
