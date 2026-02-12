@@ -23,6 +23,7 @@ Views focadas na demonstração contábil, gestão de fluxo financeiro e resulta
 | `ZI_DRE` | `ZC_DRE` | Demonstração do Resultado do Exercício (P&L/Lucros e Perdas). |
 | `ZI_Fluxo_Caixa` | `ZC_Fluxo_Caixa` | Demonstração do Fluxo de Caixa (Método Direto/Indireto). |
 | `ZI_Dividendos` | `ZC_Dividendos` | Cálculo e distribuição de dividendos aos acionistas. |
+| `ZI_Royalties` | `ZC_Royalties` | Gestão e cálculo de pagamentos/recebimentos de Royalties. |
 | `ZI_Contas_Pagar` | `ZC_Contas_Pagar` | Posição de contas a pagar (Fornecedores), aging list. |
 | `ZI_Contas_Receber` | `ZC_Contas_Receber` | Posição de contas a receber (Clientes), aging list. |
 | `ZI_Imobilizado` | `ZC_Imobilizado` | Gestão de Ativo Fixo (Aquisições, Depreciação, Baixas). |
