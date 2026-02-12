@@ -24,6 +24,9 @@ define view ZI_Contas_Receber
   
   Geral.GLAccount                              as GLAccount,
   Geral.GLAccountName,
+
+  Geral.GKONT              as GKONT,
+  Geral.GKOAR              as GKOAR,
   
   Geral.BusinessArea                           as Branch,
   Geral.ProfitCenter,
