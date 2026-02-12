@@ -11,79 +11,87 @@
 define view ZC_Contas_Receber
   as select from ZI_Contas_Receber
 {
-    key CompanyCode,
-    key Ledger,
-    
-    @EndUserText.label: 'Número do Documento'
-    key DocumentNumber,
-    
-    @EndUserText.label: 'Item'
-    key DocumentItem,
-    
-    key FiscalYear,
+  key CompanyCode,
+  key Ledger,
 
-    @EndUserText.label: 'Cliente'
-    Customer,
-    
-    @EndUserText.label: 'Nome do Cliente'
-    CustomerName,
+      @EndUserText.label: 'Número do Documento'
+  key DocumentNumber,
 
-    @EndUserText.label: 'Conta Razão'
-    GLAccount,
-    
-    @EndUserText.label: 'Nome da Conta'
-    GLAccountName,
+      @EndUserText.label: 'Item'
+  key DocumentItem,
 
-    @EndUserText.label: 'Área de Negócio'
-    Branch,
-    
-    @EndUserText.label: 'Centro de Lucro'
-    ProfitCenter,
-    
-    @EndUserText.label: 'Nome Centro Lucro'
-    ProfitCenterName,
+  key FiscalYear,
 
-    @EndUserText.label: 'Tipo de Documento'
-    DocType,
-    
-    @EndUserText.label: 'Referência / Nota Fiscal'
-    NotaFiscal_XBLNR,
-    
-    @EndUserText.label: 'Atribuição'
-    Atribuicao_ZUONR,
-    
-    @EndUserText.label: 'Texto do Item'
-    DocumentText,
-    
-    @EndUserText.label: 'Débito/Crédito'
-    DebitCredit,
+      @EndUserText.label: 'Cliente'
+      Customer,
 
-    @EndUserText.label: 'Data de Lançamento'
-    PostingDate,
-    
-    @EndUserText.label: 'Data do Documento'
-    DocumentDate,
-    
-    @EndUserText.label: 'Data de Vencimento'
-    DueDate,
-    
-    @EndUserText.label: 'Data de Compensação'
-    ClearingDate,
+      @EndUserText.label: 'Nome do Cliente'
+      CustomerName,
 
-    @EndUserText.label: 'Status do Documento'
-    DocumentStatus,
+      @EndUserText.label: 'Conta Razão'
+      GLAccount,
 
-    Currency,
+      @EndUserText.label: 'Nome da Conta'
+      GLAccountName,
 
-    @DefaultAggregation: #SUM
-    @EndUserText.label: 'Valor Original'
-    AmountDocumentCurrency,
+      @EndUserText.label: 'Conta Contrapartida (GKONT)'
+      @AnalyticsDetails.query.display: #KEY
+      GKONT,
 
-    @DefaultAggregation: #SUM
-    @EndUserText.label: 'Saldo em Aberto'
-    ValorTotalAberto,
+      @EndUserText.label: 'Tipo Contrapartida (GKOAR)'
+      @AnalyticsDetails.query.display: #KEY
+      GKOAR,
 
-    @DefaultAggregation: #SUM
-    @EndUserText.label: 'Valor Compensado'
-    ValorTotalCompensado
+      @EndUserText.label: 'Área de Negócio'
+      Branch,
+
+      @EndUserText.label: 'Centro de Lucro'
+      ProfitCenter,
+
+      @EndUserText.label: 'Nome Centro Lucro'
+      ProfitCenterName,
+
+      @EndUserText.label: 'Tipo de Documento'
+      DocType,
+
+      @EndUserText.label: 'Referência / Nota Fiscal'
+      NotaFiscal_XBLNR,
+
+      @EndUserText.label: 'Atribuição'
+      Atribuicao_ZUONR,
+
+      @EndUserText.label: 'Texto do Item'
+      DocumentText,
+
+      @EndUserText.label: 'Débito/Crédito'
+      DebitCredit,
+
+      @EndUserText.label: 'Data de Lançamento'
+      PostingDate,
+
+      @EndUserText.label: 'Data do Documento'
+      DocumentDate,
+
+      @EndUserText.label: 'Data de Vencimento'
+      DueDate,
+
+      @EndUserText.label: 'Data de Compensação'
+      ClearingDate,
+
+      @EndUserText.label: 'Status do Documento'
+      DocumentStatus,
+
+      Currency,
+
+      @DefaultAggregation: #SUM
+      @EndUserText.label: 'Valor Original'
+      AmountDocumentCurrency,
+
+      @DefaultAggregation: #SUM
+      @EndUserText.label: 'Saldo em Aberto'
+      ValorTotalAberto,
+
+      @DefaultAggregation: #SUM
+      @EndUserText.label: 'Valor Compensado'
+      ValorTotalCompensado
 }
