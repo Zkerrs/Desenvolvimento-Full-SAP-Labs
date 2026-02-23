@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCDIVIDENDOS'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Pagamento de Dividendos'
+@EndUserText.label: 'Relatório de Dividendos'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION
