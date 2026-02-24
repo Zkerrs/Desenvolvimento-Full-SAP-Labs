@@ -38,6 +38,9 @@ define view ZC_Contas_Pagar
       DocumentStatus,
       DebitCredit,
       PostingKey,
+      UMSKZ,
+      UMSKS,
+      ZUMSK,
       Currency,
 
       @EndUserText.label: 'C/Contrapartida (GKONT)'
