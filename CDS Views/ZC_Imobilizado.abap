@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCIMOBFL'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório Analítico de Imobilizado'
+@EndUserText.label: 'Consumo Analítico de Imobilizado'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION

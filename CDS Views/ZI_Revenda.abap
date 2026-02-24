@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIREVENDA'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Análise de Revenda'
+@EndUserText.label: 'Relatório de Revenda'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE

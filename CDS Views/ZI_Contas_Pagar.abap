@@ -2,7 +2,7 @@
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Contas a Pagar'
+@EndUserText.label: 'Relatório Contas a Pagar'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     

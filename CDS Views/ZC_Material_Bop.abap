@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCMATBOP'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório Analítico Custo Material'
+@EndUserText.label: 'Consumo Analítico Custo Material'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION

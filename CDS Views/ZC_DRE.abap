@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCDREFLOW'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório Analítico DRE (Flow)'
+@EndUserText.label: 'Consumo Analítico DRE (Flow)'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION

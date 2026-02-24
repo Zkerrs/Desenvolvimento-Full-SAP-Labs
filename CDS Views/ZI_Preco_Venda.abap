@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIPRECOVENDA'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Análise de Preço (Vendas + Impostos)'
+@EndUserText.label: 'Relatório de Preço (Vendas + Impostos)'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE

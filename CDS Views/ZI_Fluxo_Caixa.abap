@@ -2,7 +2,7 @@
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Fluxo de Caixa'
+@EndUserText.label: 'Relatório Fluxo de Caixa'
 
 @VDM.viewType: #COMPOSITE
 @Analytics.dataCategory: #CUBE

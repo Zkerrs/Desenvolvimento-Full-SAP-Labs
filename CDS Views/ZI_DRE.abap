@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIDREFLOW'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'DRE - Demonstração de Resultado'
+@EndUserText.label: 'Relatório DRE - Demonstração de Resultado'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     

@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCREVENDA'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório Analítico de Revenda'
+@EndUserText.label: 'Consumo Analítico de Revenda'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION

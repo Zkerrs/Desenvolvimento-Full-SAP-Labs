@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCIMPFLOWCB'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório Analítico de Impostos'
+@EndUserText.label: 'Consumo Analítico de Impostos'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION
