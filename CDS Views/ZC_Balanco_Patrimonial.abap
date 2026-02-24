@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCBALANCOPTR'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Analytics Balanço'
+@EndUserText.label: 'Analytics Balanço Patrimonial'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION
