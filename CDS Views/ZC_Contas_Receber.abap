@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCSQL_DEV_CR'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Analytics Contas a Receber'
+@EndUserText.label: 'Relatório Analítico do Contas a Receber'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION  

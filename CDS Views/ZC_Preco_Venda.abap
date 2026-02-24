@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCPRECOVENDA'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Preço de Venda'
+@EndUserText.label: 'Relatório Analítico de Preço de Venda'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION

@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCFLUXCAIX'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Analytics Fluxo Caixa'
+@EndUserText.label: 'Relatório Analítico do Fluxo Caixa'
 
 @VDM.viewType: #CONSUMPTION  
 @Analytics.query: true       

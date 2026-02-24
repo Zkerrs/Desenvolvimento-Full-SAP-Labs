@@ -2,7 +2,7 @@
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Contas a Pagar'
+@EndUserText.label: 'Contas a Pagar'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     
@@ -23,6 +23,11 @@ define view ZI_Contas_Pagar
     // J_1BBRANCH: Dados da Filial
     left outer join j_1bbranch on  bseg.CompanyCode   = j_1bbranch.bukrs
                                and bseg.BusinessPlace = j_1bbranch.branch
+    
+    left outer join bseg as tabela_bseg on bseg.CompanyCode = tabela_bseg.bukrs
+                                        and bseg.AccountingDocument = tabela_bseg.belnr
+                                        and bseg.FiscalYear = tabela_bseg.gjahr
+                                        and bseg.AccountingDocumentItem = tabela_bseg.buzei
 {
   key bseg.CompanyCode,
   key bseg.AccountingDocument                                  as DocumentNumber,
@@ -55,6 +60,9 @@ define view ZI_Contas_Pagar
   bseg.CompanyCodeCurrency                                     as Currency,
   
   bseg.PostingKey                                              as PostingKey,
+  bseg.SpecialGLCode                                           as UMSKZ,
+  bseg.SpecialGLTransactionType                                as UMSKS,
+  tabela_bseg.zumsk                                            as ZUMSK,
   bseg.DocumentItemText                                        as DocumentText,
   bseg.ClearingJournalEntry                                    as ClearingDocument,
   bseg.ClearingDate                                            as ClearingDate,

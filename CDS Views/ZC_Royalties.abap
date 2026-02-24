@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZCROYALTIES'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Royalties'
+@EndUserText.label: 'Relatório Analítico de Royalties'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #CONSUMPTION

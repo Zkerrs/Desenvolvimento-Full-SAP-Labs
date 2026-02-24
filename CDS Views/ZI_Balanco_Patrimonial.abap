@@ -1,7 +1,7 @@
 @AbapCatalog.sqlViewName: 'ZIBALANCOFLOW'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Balanço Patrimonial'
+@EndUserText.label: 'Relatório do Balanço Patrimonial'
 @Metadata.ignorePropagatedAnnotations: true
 
 @VDM.viewType: #COMPOSITE     
