@@ -11,13 +11,11 @@
 define view ZI_Material_Bop
   as select from ZI_GLAccountBalanceFlow as Geral
 
-  left outer join I_ProductValuationBasic as Custo 
-    on  Geral.Material = Custo.Product
-    and Geral.Plant    = Custo.ValuationArea
-    and Custo.ValuationType = ''
+  left outer join I_ProductValuationBasic as Custo on  Geral.Material = Custo.Product
+                                                   and Geral.Plant    = Custo.ValuationArea
+                                                   and Custo.ValuationType = ''
     
-  left outer join I_Product as TipoMaterial
-    on Geral.Material = TipoMaterial.Product 
+  left outer join I_Product as TipoMaterial        on Geral.Material = TipoMaterial.Product 
 {
   key Geral.CompanyCode,
   key Geral.Ledger,
