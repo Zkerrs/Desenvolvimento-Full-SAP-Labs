@@ -37,6 +37,7 @@ define view ZI_Contas_Receber
   Geral.Assignment                             as Atribuicao_ZUONR,
   Geral.ItemText                               as DocumentText,
   
+  Geral.FiscalPeriod,
   Geral.PostingDate,
   Geral.DocumentDate,
   Geral.NetDueDate                             as DueDate,
