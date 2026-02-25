@@ -1,7 +1,7 @@
 # 🌌 Desenvolvimento Full SAP Labs
 
 > <sub>**Hub Central do Ecossistema SAP**</sub>
-> <sub>Este repositório serve como base de conhecimento, laboratório de testes e versionamento de soluções que abrangem **toda a stack SAP**, do Back-end on-premise até a Nuvem. Com códigos, scripts, modelagens e lógicas desenvolvidas, focando em experimentação e consolidação de conceitos.</sub>
+> <sub>Este repositório serve como base de conhecimento, laboratório de testes e versionamento de soluções que para **toda a stack SAP**, do Back-end on-premise até a Nuvem. Com códigos, scripts, modelagens e lógicas desenvolvidas, focando em experimentação e consolidação de conceitos.</sub>
 
 ---
 
