@@ -53,17 +53,25 @@ Views para análise de precificação e operações de revenda.
 
 ## 🛠️ Ferramentas & Requisitos Técnicos
 
-* **Linguagem:** ABAP CDS (Core Data Services)
-* **Compatibilidade:** SAP S/4HANA
-* **IDE (Backend):** Eclipse com ABAP Development Tools (ADT) para codificação e modelagem.
-* **Gerenciamento (SAP GUI):** Utilização de transações clássicas para administração e testes:
-    * **Gestão de Transportes & Pacotes:**
-    * Transport Organizer, Cópia de Request entre Mandantes e Package Builder.
-    * **Testes & Analytics:**
-    * Query Monitor para debug e análise de performance das Queries CDS.
-    * **Conectividade & OData:**
-    * Ativação e manutenção de serviços OData gerados pelas views.
-* **Front-end:** SAP Analytics Cloud (SAC).
+### 💻 Core Stack
+| Categoria | Tecnologia / Ambiente |
+| :--- | :--- |
+| **Linguagem** | ABAP CDS (Core Data Services) |
+| **Compatibilidade** | SAP S/4HANA |
+| **IDE (Back-end)** | Eclipse com ABAP Development Tools (ADT) para codificação. |
+| **Front-end** | SAP Analytics Cloud (SAC) |
+
+<br>
+
+### 🖥️ Transações SAP GUI
+| Área de Atuação | Transações | Aplicação Prática |
+| :--- | :--- | :--- |
+| **📦 Transportes & Pacotes** | `SE09`, `SE21`, `SCC1N` | Transport Organizer, Package Builder e Cópia de Request. |
+| **📊 Testes & Analytics** | `RSRT`, `RSRTS_ODP_DIS` | Execução de relatórios e Preview de TransientProvider. |
+| **🔌 Conectividade OData** | `/IWFND/MAINT_SERVICE`, `SICF` | Ativação de serviços e manutenção da árvore HTTP. |
+| **🗂️ Configurações FI/CO** | `OB58`, `KAH1`, `OKENN` | Atualização T011, Grupo de classes e Hierarquia standard. |
+| **💰 Análise Financeira** | `FBL1N`, `FBL3N`, `FBL5N`, `FS10N` | Partidas individuais (Fornecedores/Razão/Clientes) e Saldos. |
+| **📦 Materiais & Ativos** | `AW01N`, `CKM3N` | Asset Explorer e Análise de preço do material. |
 
 ---
 <div align="center">
