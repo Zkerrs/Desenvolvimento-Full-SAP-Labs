@@ -28,6 +28,7 @@ define view ZC_Contas_Pagar
       PostingDate,
       DocumentDate,
       DueDate,
+      FiscalPeriod,
       DocumentText,
       ClearingDocument,
       ClearingDate,
