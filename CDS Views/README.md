@@ -1,10 +1,10 @@
 # 📂 SAP ABAP CDS Views
 
-Este diretório contém as **Core Data Services (CDS) Views** desenvolvidas para relatórios analíticos e operacionais. As views estão estruturadas para suportar análises financeiras (Balanço, DRE, Fluxo de Caixa) e gestão de estoques/custos.
+> <sub>Este diretório contém as **Core Data Services (CDS) Views** desenvolvidas para relatórios analíticos e operacionais. As views estão estruturadas para suportar análises financeiras (Balanço, DRE, Fluxo de Caixa) e gestão de estoques/custos.</sub>
 
 ## 🏗️ Estrutura
 
-O projeto segue a convenção de nomenclatura padrão VDM (Virtual Data Model):
+> <sub>O projeto segue a convenção de nomenclatura padrão VDM (Virtual Data Model):</sub>
 
 * **`ZI_` (Interface Views):** Views de base/compostas que acessam tabelas standard (ACDOCA, MARA, BSEG, etc.) e realizam as primeiras transformações.
 * **`ZC_` (Consumption Views):** Views de consumo final, prontas para serem consumidas por **SAP Analytics Cloud (SAC)**, **Fiori** ou **Analysis for Office**. Geralmente possuem anotações de `@Analytics.query: true`.
@@ -15,7 +15,7 @@ O projeto segue a convenção de nomenclatura padrão VDM (Virtual Data Model):
 
 ### 💰 Finanças & Contabilidade (FI/CO)
 
-Views focadas na demonstração contábil, gestão de fluxo financeiro e resultados.
+> <sub>*Views focadas na demonstração contábil, gestão de fluxo financeiro e resultados.*</sub>
 
 | Interface View (Base) | Consumption View (Final) | Descrição Funcional |
 | :--- | :--- | :--- |
@@ -32,7 +32,7 @@ Views focadas na demonstração contábil, gestão de fluxo financeiro e resulta
 
 ### 📦 Materiais & Custos (MM/CO-PC)
 
-Views voltadas para valorização de estoque e controle de materiais.
+> <sub>*Views voltadas para valorização de estoque e controle de materiais.*</sub>
 
 | Interface View (Base) | Consumption View (Final) | Descrição Funcional |
 | :--- | :--- | :--- |
@@ -42,7 +42,7 @@ Views voltadas para valorização de estoque e controle de materiais.
 
 ### 🛒 Comercial & Vendas (SD)
 
-Views para análise de precificação e operações de revenda.
+> <sub>*Views para análise de precificação e operações de revenda.*</sub>
 
 | Interface View (Base) | Consumption View (Final) | Descrição Funcional |
 | :--- | :--- | :--- |
@@ -53,25 +53,38 @@ Views para análise de precificação e operações de revenda.
 
 ## 🛠️ Ferramentas & Requisitos Técnicos
 
-### 💻 Core Stack
-| Categoria | Tecnologia / Ambiente |
-| :--- | :--- |
-| **Linguagem** | ABAP CDS (Core Data Services) |
-| **Compatibilidade** | SAP S/4HANA |
-| **IDE (Back-end)** | Eclipse com ABAP Development Tools (ADT) para codificação. |
-| **Front-end** | SAP Analytics Cloud (SAC) |
+* 💻 **Linguagem:** ABAP CDS (Core Data Services).
+* ⚙️ **Compatibilidade:** SAP S/4HANA.
+* 🛠️ **IDE (Back-end):** Eclipse com ABAP Development Tools (ADT) para codificação e modelagem.
+* 📈 **Front-end (Analytics):** SAP Analytics Cloud (SAC).
 
 <br>
 
-### 🖥️ Transações SAP GUI
-| Área de Atuação | Transações | Aplicação Prática |
-| :--- | :--- | :--- |
-| **📦 Transportes & Pacotes** | `SE09`, `SE21`, `SCC1N` | Transport Organizer, Package Builder e Cópia de Request. |
-| **📊 Testes & Analytics** | `RSRT`, `RSRTS_ODP_DIS` | Execução de relatórios e Preview de TransientProvider. |
-| **🔌 Conectividade OData** | `/IWFND/MAINT_SERVICE`, `SICF` | Ativação de serviços e manutenção da árvore HTTP. |
-| **🗂️ Configurações FI/CO** | `OB58`, `KAH1`, `OKENN` | Atualização T011, Grupo de classes e Hierarquia standard. |
-| **💰 Análise Financeira** | `FBL1N`, `FBL3N`, `FBL5N`, `FS10N` | Partidas individuais (Fornecedores/Razão/Clientes) e Saldos. |
-| **📦 Materiais & Ativos** | `AW01N`, `CKM3N` | Asset Explorer e Análise de preço do material. |
+### 🖥️ Transações SAP GUI (T-Codes)
+
+**⚙️ Administração & Dados**
+> `SE16N` Navegador de tabelas • `SM12` Gestão de bloqueios • `DB02` Monitoramento do BD
+
+**📦 Transportes**
+> `SE09` Transport Organizer • `SE21` Package Builder • `SCC1N` Cópia de Request
+
+**🔌 Integração OData**
+> `/IWFND/MAINT_SERVICE` Ativação de serviços • `SICF` Manutenção da árvore HTTP
+
+**📊 Analytics & Testes**
+> `RSRT` Execução de relatórios • `RSRTS_ODP_DIS` Preview de TransientProvider
+
+**🗂️ Configurações FI/CO**
+> `OB58` Atualização T011 • `KAH1` Grupo de classes • `OKENN` Hierarquia standard
+
+**💰 Análise Financeira**
+> `F.01` Balanço/DRE • `FBL1N` Fornecedores • `FBL3N` Conta Razão • `FBL5N` Clientes • `FS10N` Saldos
+
+**📈 Relatórios Standard**
+> `S_ALR_87012284` / `S_ALR_87011990` e Série `870133*` (Balanço, Imob. e Custo/Lucro)
+
+**🛒 Logística & Vendas**
+> `VA03` Ordem de Venda • `AW01N` Asset Explorer • `CKM3N` Preço do material
 
 ---
 <div align="center">

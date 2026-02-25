@@ -1,16 +1,13 @@
 # 🌌 Desenvolvimento Full SAP Labs
 
-> **Hub Central do Ecossistema SAP**
-
-Este repositório serve como base de conhecimento, laboratório de testes e versionamento de soluções que abrangem **toda a stack SAP**, do Back-end on-premise até a Nuvem.
-
-Com códigos, scripts, modelagens e lógicas desenvolvidas, focando em experimentação e consolidação de conceitos.
+> <sub>**Hub Central do Ecossistema SAP**</sub>
+> <sub>Este repositório serve como base de conhecimento, laboratório de testes e versionamento de soluções que para **toda a stack SAP**, do Back-end on-premise até a Nuvem. Com códigos, scripts, modelagens e lógicas desenvolvidas, focando em experimentação e consolidação de conceitos.</sub>
 
 ---
 
 ## 🚀 Stack Tecnológica
 
-O repositório aborda soluções envolvendo as seguintes ferramentas e plataformas:
+> <sub>*O repositório aborda soluções envolvendo as seguintes ferramentas e plataformas:*</sub>
 
 ### ☁️ Cloud & Analytics
 * **SAP Datasphere:** Modelagem de dados, Data Builder, Views Relacionais e Associações.
@@ -18,12 +15,12 @@ O repositório aborda soluções envolvendo as seguintes ferramentas e plataform
 * **SAP BTP:** Integrações e serviços na nuvem.
 
 ### ⚙️ Core Development (S/4HANA)
-* **ABAP Moderno:** Sintaxe 7.5+, ABAP OO.
-* **Data Modeling:** CDS Views (Core Data Services), SQL Script, AMDP.
-* **Integração:** OData Services, APIs.
+* **ABAP Moderno:** Sintaxe 7.5+ e ABAP OO.
+* **Data Modeling:** CDS Views (Core Data Services), SQL Script e AMDP.
+* **Integração:** OData Services e APIs.
 
 ### 🛠️ Ferramentas & IDEs
-* **VS Code & Cursor:** Edição ágil, Git integration e AI-assisted coding.
+* **VS Code & Cursor:** Edição ágil, integração com Git e AI-assisted coding.
 * **Eclipse ADT:** Ambiente nativo para desenvolvimento ABAP/CDS.
 * **Git:** Versionamento e controle de código.
 
@@ -31,7 +28,7 @@ O repositório aborda soluções envolvendo as seguintes ferramentas e plataform
 
 ## 📂 Estrutura do Repositório
 
-Como este é um ambiente de laboratório, os projetos estão organizados por contexto técnico:
+> <sub>*Como este é um ambiente de laboratório, os projetos estão organizados por contexto técnico:*</sub>
 
 | Contexto | Descrição |
 | :--- | :--- |
@@ -41,4 +38,6 @@ Como este é um ambiente de laboratório, os projetos estão organizados por con
 | **🔌 Integrações** | Testes de APIs e conectividade entre sistemas. |
 
 ---
-*Mantido por Iuker Souza - Desenvolvendo o universo SAP.* 🚀
+<div align="center">
+  <sub>Mantido por <b>Iuker Souza</b> • Desenvolvendo o SAP</sub>
+</div>

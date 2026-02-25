@@ -1,13 +1,14 @@
 # 📂 SAP Analytics Cloud - Data Actions
 
-Este diretório serve como repositório central para os scripts de **Data Actions** (Advanced Formulas) desenvolvidos para o ambiente de **SAP Analytics Cloud (SAC)**.
+> <sub>Este diretório serve como repositório central para os scripts de **Data Actions** (Advanced Formulas) desenvolvidos para o ambiente de **SAP Analytics Cloud (SAC)**.</sub>
 
 ## 🎯 Objetivo
-O objetivo desta pasta é versionar e documentar as regras de negócio utilizadas nos Modelos de Planejamento. Os scripts armazenados cobrem diferentes lógicas de cálculo, desde agregações e limpezas de dados até cálculos complexos em cascata.
+
+> <sub>O objetivo desta pasta é versionar e documentar as regras de negócio utilizadas nos Modelos de Planejamento. Os scripts armazenados cobrem diferentes lógicas de cálculo, desde agregações e limpezas de dados até cálculos complexos em cascata.</sub>
 
 ## 📜 Scripts Disponíveis
 
-Abaixo estão os códigos fontes de **Advanced Formulas** (Data Actions) mantidos neste repositório:
+> <sub>*Abaixo estão os códigos fontes de **Advanced Formulas** (Data Actions) mantidos neste repositório:*</sub>
 
 * **`Script_Agregacao_Noh_Pai.cs`**: Realiza a agregação automática de valores dos níveis inferiores para os nós pais da hierarquia.
 * **`Script_Calculo_Cascata.cs`**: Executa cálculos sequenciais onde o resultado de uma etapa serve de base para a próxima (ex: Receita -> Margem).
