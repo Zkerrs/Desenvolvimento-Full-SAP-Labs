@@ -45,6 +45,7 @@ define view ZI_Contas_Pagar
   bseg.PostingDate                                             as PostingDate,
   bseg.DocumentDate                                            as DocumentDate,
   bseg.NetDueDate                                              as DueDate,
+  bseg.FiscalPeriod                                            as FiscalPeriod,
   
   @Semantics.amount.currencyCode: 'Currency'
   @DefaultAggregation: #SUM
