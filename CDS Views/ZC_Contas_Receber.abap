@@ -69,6 +69,9 @@ define view ZC_Contas_Receber
       @EndUserText.label: 'Data de Lançamento'
       PostingDate,
 
+      @EndUserText.label: 'Mês'
+      FiscalPeriod,
+
       @EndUserText.label: 'Data do Documento'
       DocumentDate,
 
