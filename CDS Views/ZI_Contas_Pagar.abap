@@ -13,21 +13,21 @@ define view ZI_Contas_Pagar
   as select from I_OperationalAcctgDocItem as bseg
     
     // --- JOINS ---
-    left outer join t001       on bseg.CompanyCode = t001.bukrs
-    left outer join lfa1       on bseg.Supplier = lfa1.lifnr
+    left outer join t001                    on bseg.CompanyCode = t001.bukrs
+    left outer join lfa1                    on bseg.Supplier = lfa1.lifnr
     
     // T003T: Texto do Tipo de Documento
-    left outer join t003t      on  bseg.AccountingDocumentType = t003t.blart
-                               and t003t.spras                 = $session.system_language
+    left outer join t003t                   on  bseg.AccountingDocumentType = t003t.blart
+                                            and t003t.spras                 = $session.system_language
                                
     // J_1BBRANCH: Dados da Filial
-    left outer join j_1bbranch on  bseg.CompanyCode   = j_1bbranch.bukrs
-                               and bseg.BusinessPlace = j_1bbranch.branch
+    left outer join j_1bbranch              on  bseg.CompanyCode   = j_1bbranch.bukrs
+                                            and bseg.BusinessPlace = j_1bbranch.branch
     
-    left outer join bseg as tabela_bseg on bseg.CompanyCode = tabela_bseg.bukrs
-                                        and bseg.AccountingDocument = tabela_bseg.belnr
-                                        and bseg.FiscalYear = tabela_bseg.gjahr
-                                        and bseg.AccountingDocumentItem = tabela_bseg.buzei
+    left outer join bseg as tabela_bseg     on bseg.CompanyCode = tabela_bseg.bukrs
+                                            and bseg.AccountingDocument = tabela_bseg.belnr
+                                            and bseg.FiscalYear = tabela_bseg.gjahr
+                                            and bseg.AccountingDocumentItem = tabela_bseg.buzei
 {
   key bseg.CompanyCode,
   key bseg.AccountingDocument                                  as DocumentNumber,

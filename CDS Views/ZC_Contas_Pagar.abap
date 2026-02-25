@@ -11,37 +11,91 @@
 define view ZC_Contas_Pagar
   as select from ZI_Contas_Pagar
 {
+      @EndUserText.label: 'Empresa'
   key CompanyCode,
+  
+      @EndUserText.label: 'Nº Documento'
   key DocumentNumber,
+  
+      @EndUserText.label: 'Item do Documento'
   key DocumentItem,
+  
+      @EndUserText.label: 'Exercício'
   key FiscalYear,
+  
+      @EndUserText.label: 'Fornecedor'
   key Supplier,
+  
+      @EndUserText.label: 'Conta Razão'
   key GLAccount,
 
       @EndUserText.label: 'Mandante'
       MandanteCod,
 
+      @EndUserText.label: 'Filial'
       Branch,
+      
+      @EndUserText.label: 'Nome da Empresa'
       CompanyName,
+      
+      @EndUserText.label: 'Nome do Fornecedor'
       VendorName,
+      
+      @EndUserText.label: 'Tipo de Documento'
       DocType,
+      
+      @EndUserText.label: 'Data de Lançamento'
       PostingDate,
+      
+      @EndUserText.label: 'Data do Documento'
       DocumentDate,
+      
+      @EndUserText.label: 'Data de Vencimento'
       DueDate,
+      
+      @EndUserText.label: 'Período Fiscal'
       FiscalPeriod,
+      
+      @EndUserText.label: 'Texto do Documento'
       DocumentText,
+      
+      @EndUserText.label: 'Doc. Compensação'
       ClearingDocument,
+      
+      @EndUserText.label: 'Data de Compensação'
       ClearingDate,
+      
+      @EndUserText.label: 'Centro de Custo'
       CostCenter,
+      
+      @EndUserText.label: 'CNPJ'
       CNPJ,
+      
+      @EndUserText.label: 'Tipo de Despesa'
       TipoDespesa,
+      
+      @EndUserText.label: 'Doc. Estorno'
       DocEstorno,
+      
+      @EndUserText.label: 'Status do Documento'
       DocumentStatus,
+      
+      @EndUserText.label: 'Débito/Crédito'
       DebitCredit,
+      
+      @EndUserText.label: 'Chave de Lançamento'
       PostingKey,
+      
+      @EndUserText.label: 'Cód. Razão Especial'
       UMSKZ,
+      
+      @EndUserText.label: 'Tipo Razão Especial'
       UMSKS,
+      
+      @EndUserText.label: 'Destino Razão Especial'
       ZUMSK,
+      
+      @EndUserText.label: 'Moeda'
       Currency,
 
       @EndUserText.label: 'C/Contrapartida (GKONT)'
@@ -52,9 +106,11 @@ define view ZC_Contas_Pagar
       @AnalyticsDetails.query.display: #KEY
       GKOAR,
 
+      @EndUserText.label: 'Montante Moeda Local'
       @DefaultAggregation: #SUM
       AmountLocalCurrency,
 
+      @EndUserText.label: 'Montante Moeda Doc.'
       @DefaultAggregation: #SUM
       AmountDocumentCurrency,
 
@@ -65,5 +121,5 @@ define view ZC_Contas_Pagar
       @DefaultAggregation: #SUM
       @EndUserText.label: 'Total Compensado'
       ValorTotalCompensado
-
 }
+

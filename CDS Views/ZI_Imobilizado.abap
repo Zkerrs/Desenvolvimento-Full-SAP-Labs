@@ -11,18 +11,15 @@
 define view ZI_Imobilizado
   as select from ZI_GLAccountBalanceFlow as Geral
 
-  left outer join I_FixedAsset as _AssetMaster
-    on  Geral.CompanyCode      = _AssetMaster.CompanyCode
-    and Geral.MasterFixedAsset = _AssetMaster.MasterFixedAsset
-    and Geral.FixedAssetSub    = _AssetMaster.FixedAsset
+  left outer join I_FixedAsset as _AssetMaster                 on  Geral.CompanyCode      = _AssetMaster.CompanyCode
+                                                               and Geral.MasterFixedAsset = _AssetMaster.MasterFixedAsset
+                                                               and Geral.FixedAssetSub    = _AssetMaster.FixedAsset
   
-  association [0..1] to I_AssetTransactionTypeText as _TrxText 
-    on  Geral.AssetTrxType = _TrxText.AssetTransactionType
-    and _TrxText.Language  = $session.system_language
+  association [0..1] to I_AssetTransactionTypeText as _TrxText on  Geral.AssetTrxType = _TrxText.AssetTransactionType
+                                                               and _TrxText.Language  = $session.system_language
 
-  association [0..1] to I_AssetClassText as _ClassText
-    on  _AssetMaster.AssetClass = _ClassText.AssetClass
-    and _ClassText.Language     = $session.system_language
+  association [0..1] to I_AssetClassText as _ClassText         on  _AssetMaster.AssetClass = _ClassText.AssetClass
+                                                               and _ClassText.Language     = $session.system_language
 
 {
   key Geral.CompanyCode,

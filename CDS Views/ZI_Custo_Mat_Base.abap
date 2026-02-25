@@ -8,37 +8,29 @@
 define view ZI_Custo_Mat_Base
   as select from I_MaterialStock_2 as Historico
 
-  left outer join I_ProductValuationBasic as Mestre
-    on  Historico.Material      = Mestre.Product
-    and Historico.Plant         = Mestre.ValuationArea
-    and Mestre.ValuationType    = ''
+  left outer join I_ProductValuationBasic as Mestre   on  Historico.Material      = Mestre.Product
+                                                      and Historico.Plant         = Mestre.ValuationArea
+                                                      and Mestre.ValuationType    = ''
 
-  left outer join I_ProductPlant as DadosPlanta
-    on  Historico.Material      = DadosPlanta.Product
-    and Historico.Plant         = DadosPlanta.Plant
+  left outer join I_ProductPlant as DadosPlanta       on  Historico.Material      = DadosPlanta.Product
+                                                      and Historico.Plant         = DadosPlanta.Plant
 
-  left outer join I_Product as TipoMaterial
-    on Historico.Material = TipoMaterial.Product 
+  left outer join I_Product as TipoMaterial           on Historico.Material = TipoMaterial.Product 
 
-  left outer join I_ProductTypeText as TextoTipo
-    on  TipoMaterial.ProductType = TextoTipo.ProductType
-    and TextoTipo.Language       = $session.system_language
+  left outer join I_ProductTypeText as TextoTipo      on  TipoMaterial.ProductType = TextoTipo.ProductType
+                                                      and TextoTipo.Language       = $session.system_language
     
-  left outer join I_Plant as Planta
-    on Historico.Plant = Planta.Plant
+  left outer join I_Plant as Planta                   on Historico.Plant = Planta.Plant
     
-  left outer join I_CompanyCode as Empresa
-    on Historico.CompanyCode = Empresa.CompanyCode
+  left outer join I_CompanyCode as Empresa            on Historico.CompanyCode = Empresa.CompanyCode
 
-  left outer join t030 as RContabil
-    on  Empresa.ChartOfAccounts    = RContabil.ktopl
-    and Mestre.ValuationClass      = RContabil.bklas
-    and RContabil.ktosl            = 'BSX'
+  left outer join t030 as RContabil                   on  Empresa.ChartOfAccounts    = RContabil.ktopl
+                                                      and Mestre.ValuationClass      = RContabil.bklas
+                                                      and RContabil.ktosl            = 'BSX'
 
-  left outer join I_GLAccountText as TextoConta
-    on  RContabil.konts         = TextoConta.GLAccount
-    and Empresa.ChartOfAccounts = TextoConta.ChartOfAccounts
-    and TextoConta.Language     = $session.system_language
+  left outer join I_GLAccountText as TextoConta       on  RContabil.konts         = TextoConta.GLAccount
+                                                      and Empresa.ChartOfAccounts = TextoConta.ChartOfAccounts
+                                                      and TextoConta.Language     = $session.system_language
 
 {
   key Historico.CompanyCode,

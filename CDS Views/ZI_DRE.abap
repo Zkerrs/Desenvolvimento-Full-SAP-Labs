@@ -11,18 +11,15 @@
 define view ZI_DRE
   as select from ZI_GLAccountBalanceFlow as Geral
   
-  left outer join t077z as TextoGrupo
-    on  Geral.ChartOfAccounts = TextoGrupo.ktopl
-    and Geral.GLAccountGroup  = TextoGrupo.ktoks
-    and TextoGrupo.spras      = 'P'
+  left outer join t077z as TextoGrupo               on  Geral.ChartOfAccounts = TextoGrupo.ktopl
+                                                    and Geral.GLAccountGroup  = TextoGrupo.ktoks
+                                                    and TextoGrupo.spras      = 'P'
   
-  left outer join I_FunctionalAreaText as TextoFunc
-    on  Geral.FunctionalArea = TextoFunc.FunctionalArea
-    and TextoFunc.Language   = $session.system_language
+  left outer join I_FunctionalAreaText as TextoFunc on  Geral.FunctionalArea = TextoFunc.FunctionalArea
+                                                    and TextoFunc.Language   = $session.system_language
 
-  left outer join I_SegmentText as TextoSeg
-    on  Geral.Segment      = TextoSeg.Segment
-    and TextoSeg.Language  = $session.system_language
+  left outer join I_SegmentText as TextoSeg         on  Geral.Segment      = TextoSeg.Segment
+                                                    and TextoSeg.Language  = $session.system_language
     
 {
   key Geral.CompanyCode,
