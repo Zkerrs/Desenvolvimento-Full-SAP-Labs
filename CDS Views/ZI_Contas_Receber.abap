@@ -1,78 +1,107 @@
-@AbapCatalog.sqlViewName: 'ZISQL_DEV_CR'
+@AbapCatalog.sqlViewName: 'ZICNTREC'
 @AbapCatalog.compiler.compareFilter: true
 @AbapCatalog.preserveKey: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Relatório de Contas a Receber'
+@EndUserText.label: 'Relatório Contas a Receber'
 @Metadata.ignorePropagatedAnnotations: true
 
-@VDM.viewType: #COMPOSITE     
-@Analytics.dataCategory: #CUBE 
+@VDM.viewType: #COMPOSITE
+@Analytics.dataCategory: #CUBE
 @OData.publish: true
 
 define view ZI_Contas_Receber
-  as select from ZI_GLAccountBalanceFlow as Geral
+  as select from I_OperationalAcctgDocItem as bseg
 
+    left outer join t001                                     on bseg.CompanyCode = t001.bukrs
+    
+  // KNA1: Tabela Mestra de Clientes
+    left outer join kna1                                     on bseg.Customer = kna1.kunnr
+
+  // T003T: Texto do Tipo de Documento
+    left outer join t003t                                    on  bseg.AccountingDocumentType = t003t.blart
+                                                             and t003t.spras                 = $session.system_language
+
+  // J_1BBRANCH: Dados da Filial
+    left outer join j_1bbranch                               on  bseg.CompanyCode   = j_1bbranch.bukrs
+                                                             and bseg.BusinessPlace = j_1bbranch.branch
+
+    left outer join bseg                      as tabela_bseg on  bseg.CompanyCode            = tabela_bseg.bukrs
+                                                             and bseg.AccountingDocument     = tabela_bseg.belnr
+                                                             and bseg.FiscalYear             = tabela_bseg.gjahr
+                                                             and bseg.AccountingDocumentItem = tabela_bseg.buzei
 {
-  key Geral.CompanyCode,
-  key Geral.Ledger,
-  key Geral.AccountingDocument                 as DocumentNumber,
-  key Geral.LedgerLineItem                     as DocumentItem,
-  key Geral.FiscalYear,
+  key bseg.CompanyCode,
+  key bseg.AccountingDocument                                  as DocumentNumber,
+  key bseg.AccountingDocumentItem                              as DocumentItem,
+  key bseg.FiscalYear                                          as FiscalYear,
+  key bseg.Customer                                            as Customer,
+  key bseg.GLAccount                                           as GLAccount,
 
-  Geral.Customer,
-  Geral.CustomerName,
-  
-  Geral.GLAccount                              as GLAccount,
-  Geral.GLAccountName,
+      concat( t001.mandt, '' )                                 as MandanteCod,
 
-  Geral.GKONT              as GKONT,
-  Geral.GKOAR              as GKOAR,
-  
-  Geral.BusinessArea                           as Branch,
-  Geral.ProfitCenter,
-  Geral.ProfitCenterName,
+      bseg.BusinessArea                                        as Branch,
+      t001.butxt                                               as CompanyName,
+      kna1.name1                                               as CustomerName,
+      bseg.AccountingDocumentType                              as DocType,
+      bseg.PostingDate                                         as PostingDate,
+      bseg.DocumentDate                                        as DocumentDate,
+      bseg.NetDueDate                                          as DueDate,
+      bseg.FiscalPeriod                                        as FiscalPeriod,
 
-  Geral.DocumentType                           as DocType,
-  Geral.ReferenceID                            as NotaFiscal_XBLNR,
-  Geral.Assignment                             as Atribuicao_ZUONR,
-  Geral.ItemText                               as DocumentText,
-  
-  Geral.FiscalPeriod,
-  Geral.PostingDate,
-  Geral.DocumentDate,
-  Geral.NetDueDate                             as DueDate,
-  Geral.ClearingDate,
-  
-  case 
-    when Geral.ClearingDoc is not null and Geral.ClearingDoc <> '' 
-    then 'Compensado'
-    else 'Aberto'
-  end                                          as DocumentStatus,
+      @Semantics.amount.currencyCode: 'Currency'
+      @DefaultAggregation: #SUM
+      bseg.AmountInCompanyCodeCurrency                         as AmountLocalCurrency,
 
-  Geral.Currency,
-  Geral.DebitCreditCode                        as DebitCredit,
+      bseg.DebitCreditCode                                     as DebitCredit,
 
-  @Semantics.amount.currencyCode: 'Currency'
-  @DefaultAggregation: #SUM
-  Geral.Amount                                 as AmountDocumentCurrency,
+      @Semantics.amount.currencyCode: 'Currency'
+      @DefaultAggregation: #SUM
+      cast(bseg.AmountInCompanyCodeCurrency as abap.dec(16,2)) as AmountDocumentCurrency,
 
-  @Semantics.amount.currencyCode: 'Currency'
-  @DefaultAggregation: #SUM
-  case 
-    when Geral.ClearingDoc is null or Geral.ClearingDoc = '' 
-    then Geral.Amount
-    else cast( 0 as abap.curr(23,2) )
-  end                                          as ValorTotalAberto,
+      @Semantics.currencyCode: true
+      bseg.CompanyCodeCurrency                                 as Currency,
 
-  @Semantics.amount.currencyCode: 'Currency'
-  @DefaultAggregation: #SUM
-  case 
-    when Geral.ClearingDoc is not null and Geral.ClearingDoc <> ''
-    then Geral.Amount
-    else cast( 0 as abap.curr(23,2) )
-  end                                          as ValorTotalCompensado
+      bseg.PostingKey                                          as PostingKey,
+      bseg.SpecialGLCode                                       as UMSKZ,
+      bseg.SpecialGLTransactionType                            as UMSKS,
+      tabela_bseg.zumsk                                        as ZUMSK,
+      bseg.DocumentItemText                                    as DocumentText,
+      bseg.ClearingJournalEntry                                as ClearingDocument,
+      bseg.ClearingDate                                        as ClearingDate,
+      
+      // Contas a Receber foca em Centro de Lucro
+      bseg.ProfitCenter                                        as ProfitCenter,
 
+      bseg.SalesDocument                                       as PedidoVenda,
+
+      bseg.OffsettingAccount                                   as GKONT,
+      bseg.OffsettingAccountType                               as GKOAR,
+
+      j_1bbranch.stcd1                                         as CNPJ,
+      t003t.ltext                                              as TipoDocumento,
+      bseg.InvoiceReference                                    as DocEstorno,
+
+      case
+        when bseg.ClearingJournalEntry <> '' then 'Compensado'
+        else 'Aberto'
+      end                                                      as DocumentStatus,
+
+      @Semantics.amount.currencyCode: 'Currency'
+      @DefaultAggregation: #SUM
+      case
+        when bseg.ClearingJournalEntry is null or bseg.ClearingJournalEntry = ''
+        then cast(bseg.AmountInCompanyCodeCurrency as abap.dec(16,2))
+        else cast(0 as abap.dec(16,2))
+      end                                                      as ValorTotalAberto,
+
+      @Semantics.amount.currencyCode: 'Currency'
+      @DefaultAggregation: #SUM
+      case
+        when bseg.ClearingJournalEntry <> ''
+        then cast(bseg.AmountInCompanyCodeCurrency as abap.dec(16,2))
+        else cast(0 as abap.dec(16,2))
+      end                                                      as ValorTotalCompensado
 }
 where
-    Geral.Ledger = '0L'
-    and Geral.Customer is not null
+      bseg.Customer is not null
+  and bseg.Customer <> ''
