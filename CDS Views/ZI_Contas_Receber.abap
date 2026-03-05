@@ -69,7 +69,6 @@ define view ZI_Contas_Receber
       bseg.ClearingJournalEntry                                as ClearingDocument,
       bseg.ClearingDate                                        as ClearingDate,
       
-      // Contas a Receber foca em Centro de Lucro
       bseg.ProfitCenter                                        as ProfitCenter,
 
       bseg.SalesDocument                                       as PedidoVenda,
