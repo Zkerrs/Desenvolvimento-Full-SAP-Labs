@@ -11,7 +11,6 @@
 define view ZI_Revenda_Std
   as select from I_JournalEntryItem as Geral
 
-  -- Associações de Texto para manter a estrutura original
   association [0..1] to I_GLAccountTextInCompanycode as _GLText on  Geral.CompanyCode = _GLText.CompanyCode
                                                                 and Geral.GLAccount   = _GLText.GLAccount
                                                                 and _GLText.Language  = $session.system_language
