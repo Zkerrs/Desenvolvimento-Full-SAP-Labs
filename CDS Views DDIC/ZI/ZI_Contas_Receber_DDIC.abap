@@ -30,7 +30,6 @@ define view ZI_Contas_Receber_DDIC
   -- J_1BBRANCH: Filial
   association [0..1] to j_1bbranch on  bseg.bukrs = j_1bbranch.bukrs
                                    and bseg.bupla = j_1bbranch.branch
-
 {
   key bseg.bukrs,
   key bseg.belnr,
@@ -103,3 +102,4 @@ define view ZI_Contas_Receber_DDIC
 where
       bseg.koart = 'D'
   and bseg.kunnr is not initial
+
