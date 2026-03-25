@@ -10,7 +10,7 @@ define view entity ZPS_I_HIER_PEP_SAC
 {
     key filho.psphi as ProjetoID,
     
-    -- Agora usamos POSID_EDIT para trazer os pontos e hifens
+    -- usando o POSID_EDIT para trazer os pontos e hifens
     key cast(filho.posid_edit as abap.char(100)) as ElementoPepFilho,
         filho.post1                              as DescricaoPepFilho,
         cast(filho.stufe as abap.int1(3))        as NivelPepFilho,
